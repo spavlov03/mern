@@ -5,6 +5,7 @@ const Component = () => {
     <>
       <h2 className="myclass">My First Component!</h2>
       <Comp2 />
+      
     </>
   )
 }
