@@ -1,13 +1,14 @@
 import { useState } from "react"
 
 const PersonaCard = (props) => {
-  const  [birthday, setBirthday ] = useState(props.age); 
+  const [ ofAge, setOfAge ] = useState(props.initialStock);
    return (
     <div className="personaCard">
       <h2>{props.lastName},{props.firstName}</h2>
-      <h6>Age: {birthday}</h6>
+      <h6>Age: {props.age}</h6>
       <h6>Hair Color: {props.hairColor}</h6>
-      <button onClick={ (event) => setBirthday(birthday + 1)}>Birthday Button for {props.firstName} {props.lastName}</button>
+      <p>Of Age: { ofAge }</p>
+      <button onClick={ (event) => setOfAge(ofAge - 1)}>Buy {props.lastName}</button>
     </div>
    )
 }
