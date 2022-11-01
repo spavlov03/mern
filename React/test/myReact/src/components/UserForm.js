@@ -30,7 +30,7 @@ const UserForm = (props) => {
             <div>
                 <label>Password: </label>
                 <input type="text" value={password} onChange={ (e) => setPassword(e.target.value) } />
-            ="keyword operator from-rainbow"></div="keyword operator from-rainbow">>
+            </div>
             <input type="submit" value="Create User" />
         </form>
     );
