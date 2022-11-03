@@ -26,14 +26,23 @@ const Form = (props) => {
           <label className="order-1 text-start w-50" htmlFor="firstName">First Name:</label>
           <input className="order-2 text-start" type="text" value={firstName} onChange={ (e) => setFirstName(e.target.value) }/>
         </div>
+        {
+          firstName && firstName.length < 2 ? <p>First Name must be at least 2 characters!</p> : null
+        }
         <div className="d-flex flex-row flex-nowrap form-control bg-light text-start">
           <label className="order-1 text-start w-50" htmlFor="lastName">Last Name:</label>
           <input className="order-2 text-start" type="text" value={lastName} onChange={ (e) => setLastName(e.target.value) }/>
         </div>
+        {
+          lastName && lastName.length < 2 ? <p>Last Name must be at least 2 characters!</p> : null
+        }
         <div className="d-flex flex-row flex-nowrap form-control bg-light text-start">
           <label className="order-1 text-start w-50" htmlFor="email">Email:</label>
           <input className="order-2 text-start" type="text" value={email} onChange={ (e) => setEmail(e.target.value) }/>
         </div>
+        {
+          email && email.length < 5 ? <p>The e-mail must be at least 5 characters!</p> : null
+        }
         <div className="d-flex flex-row flex-nowrap form-control bg-light text-start">
           <label className="order-1 text-start w-50" htmlFor="password">Password:</label>
           <input className="order-2 text-start" type="password" value={password} onChange={ (e) => setPassword(e.target.value) }/>
@@ -42,6 +51,12 @@ const Form = (props) => {
           <label className="order-1 text-start w-50" htmlFor="confirmPassword">Confirm Password:</label>
           <input className="order-2 text-start" type="password" value={confirmPassword} onChange={ (e) => setConfirmPassword(e.target.value) }/>
         </div>
+        {
+          password && password.length < 8 ? <p>Password must be at least 8 characters!</p> : null 
+        }
+        {
+          password != confirmPassword && password && confirmPassword ? <p>Passwords must match!</p> : null
+        }
       </form>
       <div className="d-flex flex-column mt-3 text-start">
         <h4 className="text-center">Your Form Data</h4>
