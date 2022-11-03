@@ -10,12 +10,14 @@ const Form = (props) => {
   const createUser = (e) => { 
     e.preventDefault();
 
-    const newUser = {firstName,lastName,email,password,confirmPassword}; 
+    const newUser = {
+      firstName,lastName,email,password,confirmPassword
+    }; 
     setFirstName(""); 
     setLastName(""); 
     setEmail(""); 
     setPassword(""); 
-    setConfirmPassword("");
+    setConfirmPassword(""); 
   }; 
   return(
     <div className="container d-flex flex-column align-items-center w-50">
