@@ -55,7 +55,7 @@ const Form = (props) => {
           password && password.length < 8 ? <p>Password must be at least 8 characters!</p> : null 
         }
         {
-          password != confirmPassword && password && confirmPassword ? <p>Passwords must match!</p> : null
+          password !== confirmPassword && password && confirmPassword ? <p>Passwords must match!</p> : null
         }
       </form>
       <div className="d-flex flex-column mt-3 text-start">
