@@ -3,6 +3,7 @@ import './App.css';
 import Component from './components/Component';
 import PersonaCard from './components/PersonaCard';
 import UserForm from './components/UserForm';
+import Reducer from './components/Reducer';
 
 function App() {
   return (
