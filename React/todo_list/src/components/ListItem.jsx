@@ -19,19 +19,17 @@ const ListItem = (props) => {
   return (
     <div>
       {
-      itemsArray.map( (item,index) => {
-        const itemClasses = [];
-        if ( item.complete) {
-          itemClasses.push("strike")
-        }
+      itemsArray.map( (item,index) => (
+        // const itemClasses = [];
+        // if ( item.complete) {
+        //   itemClasses.push("strike")
+        // }
         <div key={index}>
-          <label htmlFor="done" className={itemClasses.join(" ")}>{item.text}</label>
+          <label htmlFor="done" className={item.complete ? 'strike':null}>{item.text}</label>
           <input type="checkbox" name="done" onChange={ (e) => checkOff(index)} checked={item.complete}/>
           <button onClick={(e) => deleteItem(index)}>Delete</button>
         </div>
-       return item.text 
-      })  
-      } 
+      ))} 
     </div>
   )
 }
