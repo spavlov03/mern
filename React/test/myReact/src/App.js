@@ -6,6 +6,7 @@ import UserForm from './components/UserForm';
 import Reducer from './components/Reducer';
 import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
+import Digimon from './components/Digimon';
 import { useState } from 'react';
 
 
@@ -17,9 +18,9 @@ function App() {
 }
   return (
     <div className="App">
-      
-      <MessageForm onNewMessage={ youveGotMail } />
-      <MessageDisplay message={ currentMsg } />
+      <Digimon />
+      {/* <MessageForm onNewMessage={ youveGotMail } />
+      <MessageDisplay message={ currentMsg } /> */}
       
       {/* <Component />
       <button onClick={ ()=> alert("This button has been clicked!") }>Click Me</button>
