@@ -24,8 +24,8 @@ const ListItem = (props) => {
       itemsArray.map( (item,index) => (
         <div key={index}>
           <label htmlFor="done" className={item.complete ? 'strike':null}>{item.text}</label>
-          <input type="checkbox" name="done" onChange={ (e) => checkOff(index)} checked={item.complete}/>
-          <button onClick={(e) => deleteItem(index)}>Delete</button>
+          <input className="ms-1" type="checkbox" name="done" onChange={ (e) => checkOff(index)} checked={item.complete}/>
+          <button className="ms-1" onClick={(e) => deleteItem(index)}>Delete</button>
         </div>
       ))} 
     </div>
