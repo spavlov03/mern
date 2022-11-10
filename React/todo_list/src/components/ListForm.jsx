@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const ListForm = (props) => {
   const {itemsArray,addItem} = props;
+  
+  useEffect(() => {
+    localStorage.setItem("itemsArray",JSON.stringify(itemsArray));
+  },[itemsArray]);
 
-  const [item,setItem] = useState(""); 
+  const [item,setItem] = useState("")
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault(); 

@@ -1,12 +1,14 @@
 const ListItem = (props) => {
-  const {itemsArray,setItemsArray} = props;
+  const {itemsArray,setItemsArray} = props; 
 
   const checkOff = (index) => {
     const updatedItems = itemsArray.map((item,i) => {
       if (index === i ) { 
-        item.complete = !item.complete;
+        // item.complete = !item.complete;
+        const updatedItem = {...item,complete: !item.complete}
+        return updatedItem
       }
-      return item; 
+      return item
     }); 
     setItemsArray(updatedItems); 
   }
@@ -17,13 +19,9 @@ const ListItem = (props) => {
     setItemsArray(filteredItems);
   }
   return (
-    <div>
+    <div className="d-flex gap-2 flex-column mt-2">
       {
       itemsArray.map( (item,index) => (
-        // const itemClasses = [];
-        // if ( item.complete) {
-        //   itemClasses.push("strike")
-        // }
         <div key={index}>
           <label htmlFor="done" className={item.complete ? 'strike':null}>{item.text}</label>
           <input type="checkbox" name="done" onChange={ (e) => checkOff(index)} checked={item.complete}/>
