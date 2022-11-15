@@ -11,9 +11,7 @@ const Pokemon = () => {
       .then(response => {
         console.log(response)
         setPokemons(response.data.results)})
-      
-      
-      
+      .catch(err=> console.log(err)); 
     },[]);
   return (
     <div>
