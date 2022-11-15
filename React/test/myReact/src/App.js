@@ -8,6 +8,8 @@ import MessageForm from './components/MessageForm';
 import MessageDisplay from './components/MessageDisplay';
 import Digimon from './components/Digimon';
 import { useState } from 'react';
+import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
+
 
 
 function App() {
@@ -17,8 +19,12 @@ function App() {
     setCurrentMsg( newMessage );
 }
   return (
+    <BrowserRouter>
     <div className="App">
-      <Digimon />
+      <Routes>
+        <Route path="/" element={<MessageForm onNewMessage={youveGotMail}/>}/>
+        <Route path="/display_msg" element={<MessageDisplay message={currentMsg}/>} />
+      {/* <Digimon /> */}
       {/* <MessageForm onNewMessage={ youveGotMail } />
       <MessageDisplay message={ currentMsg } /> */}
       
@@ -28,7 +34,9 @@ function App() {
       <PersonaCard firstName={"Svet"} lastName={"Pavlov"} age={34} hairColor={"Bald"} initialStock={19}/>
       <PersonaCard firstName={"Millard"} lastName={"Fillmore"} age={50} hairColor={"Brown"} initialStock={8}/>
       <PersonaCard firstName={"Maria"} lastName={"Smith"} age={62} hairColor={"Blonde"} initialStock={5}/> */}
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

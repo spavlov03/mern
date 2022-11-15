@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
     
 const MessageForm = (props) => {
     const [msg, setMsg] = useState("");
+    const navigate = useNavigate();
     
     const handleSubmit = (e) => {
       e.preventDefault();
       props.onNewMessage( msg );
+      navigate("/display_msg"); 
   };
     
     return (
