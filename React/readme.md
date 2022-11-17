@@ -32,3 +32,11 @@ Inside app folder
     MiddleWare : 
     app.use(express.json())
     app.use(express.urlencoded({extended:true}))
+
+    folder structure 
+    server
+      - config - will handle the database configuration and connection
+      - controllers - will hold all logic for each model (i.e creating, updating, etc...)
+      - models - will hold all the schemas
+      - routes - will handle all of our routes for each model
+      server.js - will handle all the server logic with express
