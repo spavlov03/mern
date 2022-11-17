@@ -18,7 +18,7 @@ const createUser = () => {
 const createCompany = () => { 
   return {
     _id:faker.datatype.uuid(), 
-    name:faker.company.companyName(), 
+    name:faker.company.name(), 
     street:faker.address.streetAddress(),
     city:faker.address.cityName(),
     state:faker.address.state(),
