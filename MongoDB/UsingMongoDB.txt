@@ -1,0 +1,252 @@
+test_app> use my_first_db
+switched to db my_first_db
+my_first_db> db.createCollection("students")
+{ ok: 1 }
+my_first_db> db.students.insertOne({name: "Svet", home_state: "CA", lucky_number: 3, birthday: {month: 6, day: 3, year: 1988 }})
+{
+  acknowledged: true,
+  insertedId: ObjectId("637c16aaacb8dae083cc3f82")
+}
+my_first_db> db.students.insertOne({name: "Mitko", home_state: "CA", lucky_number: 7, birthday: {month: 10, day: 7, year: 1986 }})
+{
+  acknowledged: true,
+  insertedId: ObjectId("637c16d7acb8dae083cc3f83")
+}
+my_first_db> db.students.insertOne({name: "Pavel", home_state: "CA", lucky_number: 9, birthday: {month: 5, day: 26, year: 1984 }})
+{
+  acknowledged: true,
+  insertedId: ObjectId("637c1702acb8dae083cc3f84")
+}
+my_first_db> db.students.insertOne({name: "Kevin Smith", home_state: "WA", lucky_number: 13, birthday: {month: 2, day: 19, year: 1995 }})
+{
+  acknowledged: true,
+  insertedId: ObjectId("637c1760acb8dae083cc3f85")
+}
+my_first_db> db.students.insertOne({name: "David Dawson", home_state: "WA", lucky_number: 15, birthday: {month: 9, day: 28, year: 1971 }})
+{
+  acknowledged: true,
+  insertedId: ObjectId("637c178cacb8dae083cc3f86")
+}
+my_first_db> db.users.find()
+
+my_first_db> db.students.find()
+[
+  {
+    _id: ObjectId("637c16aaacb8dae083cc3f82"),
+    name: 'Svet',
+    home_state: 'CA',
+    lucky_number: 3,
+    birthday: { month: 6, day: 3, year: 1988 }
+  },
+  {
+    _id: ObjectId("637c16d7acb8dae083cc3f83"),
+    name: 'Mitko',
+    home_state: 'CA',
+    lucky_number: 7,
+    birthday: { month: 10, day: 7, year: 1986 }
+  },
+  {
+    _id: ObjectId("637c1702acb8dae083cc3f84"),
+    name: 'Pavel',
+    home_state: 'CA',
+    lucky_number: 9,
+    birthday: { month: 5, day: 26, year: 1984 }
+  },
+  {
+    _id: ObjectId("637c1760acb8dae083cc3f85"),
+    name: 'Kevin Smith',
+    home_state: 'WA',
+    lucky_number: 13,
+    birthday: { month: 2, day: 19, year: 1995 }
+  },
+  {
+    _id: ObjectId("637c178cacb8dae083cc3f86"),
+    name: 'David Dawson',
+    home_state: 'WA',
+    lucky_number: 15,
+    birthday: { month: 9, day: 28, year: 1971 }
+  }
+]
+my_first_db> db.students.find({home_state: "CA"})
+[
+  {
+    _id: ObjectId("637c16aaacb8dae083cc3f82"),
+    name: 'Svet',
+    home_state: 'CA',
+    lucky_number: 3,
+    birthday: { month: 6, day: 3, year: 1988 }
+  },
+  {
+    _id: ObjectId("637c16d7acb8dae083cc3f83"),
+    name: 'Mitko',
+    home_state: 'CA',
+    lucky_number: 7,
+    birthday: { month: 10, day: 7, year: 1986 }
+  },
+  {
+    _id: ObjectId("637c1702acb8dae083cc3f84"),
+    name: 'Pavel',
+    home_state: 'CA',
+    lucky_number: 9,
+    birthday: { month: 5, day: 26, year: 1984 }
+  }
+]
+my_first_db> db.students.find({lucky_number: {$gt: 3}})
+[
+  {
+    _id: ObjectId("637c16d7acb8dae083cc3f83"),
+    name: 'Mitko',
+    home_state: 'CA',
+    lucky_number: 7,
+    birthday: { month: 10, day: 7, year: 1986 }
+  },
+  {
+    _id: ObjectId("637c1702acb8dae083cc3f84"),
+    name: 'Pavel',
+    home_state: 'CA',
+    lucky_number: 9,
+    birthday: { month: 5, day: 26, year: 1984 }
+  },
+  {
+    _id: ObjectId("637c1760acb8dae083cc3f85"),
+    name: 'Kevin Smith',
+    home_state: 'WA',
+    lucky_number: 13,
+    birthday: { month: 2, day: 19, year: 1995 }
+  },
+  {
+    _id: ObjectId("637c178cacb8dae083cc3f86"),
+    name: 'David Dawson',
+    home_state: 'WA',
+    lucky_number: 15,
+    birthday: { month: 9, day: 28, year: 1971 }
+  }
+]
+my_first_db> db.students.find({lucky_number: {$lte: 10}})
+[
+  {
+    _id: ObjectId("637c16aaacb8dae083cc3f82"),
+    name: 'Svet',
+    home_state: 'CA',
+    lucky_number: 3,
+    birthday: { month: 6, day: 3, year: 1988 }
+  },
+  {
+    _id: ObjectId("637c16d7acb8dae083cc3f83"),
+    name: 'Mitko',
+    home_state: 'CA',
+    lucky_number: 7,
+    birthday: { month: 10, day: 7, year: 1986 }
+  },
+  {
+    _id: ObjectId("637c1702acb8dae083cc3f84"),
+    name: 'Pavel',
+    home_state: 'CA',
+    lucky_number: 9,
+    birthday: { month: 5, day: 26, year: 1984 }
+  }
+]
+
+my_first_db> db.students.find( {$and: [ { lucky_number: {$gte: 1,$lte: 9} } ] } )
+[
+  {
+    _id: ObjectId("637c16aaacb8dae083cc3f82"),
+    name: 'Svet',
+    home_state: 'CA',
+    lucky_number: 3,
+    birthday: { month: 6, day: 3, year: 1988 }
+  },
+  {
+    _id: ObjectId("637c16d7acb8dae083cc3f83"),
+    name: 'Mitko',
+    home_state: 'CA',
+    lucky_number: 7,
+    birthday: { month: 10, day: 7, year: 1986 }
+  },
+  {
+    _id: ObjectId("637c1702acb8dae083cc3f84"),
+    name: 'Pavel',
+    home_state: 'CA',
+    lucky_number: 9,
+    birthday: { month: 5, day: 26, year: 1984 }
+  }
+]
+my_first_db> db.students.updateMany({},{$set: {interests:["coding","brunch","MongoDB"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateOne({_id: ObjectId("637c16aaacb8dae083cc3f82")},{$push: {interests:"MERN"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateOne({_id: ObjectId("637c16d7acb8dae083cc3f83")},{$push: {interests:"taxes"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateOne({_id: ObjectId("637c16d7acb8dae083cc3f83")},{$pull: {interests:"taxes"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+my_first_db> db.students.remove({home_state: "CA"})
+{ acknowledged: true, deletedCount: 3 }
+my_first_db> db.students.remove({name: "Kevin Smith"})
+{ acknowledged: true, deletedCount: 1 }
+my_first_db> my_first_db> db.students.remove({lucky_number: {$gt: 5}})
+{ acknowledged: true, deletedCount: 1 }
+my_first_db> db.students.updateMany({},{$set: {number_of_belts: 0}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateMany({home_state: "WA"},{$inc: {number_of_belts: 1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateMany({},{$rename: {number_of_belts: "belts_earned"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateMany({},{$unset: {lucky_number: ""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+my_first_db> db.students.updateMany({},{$set: {updated_on: new Date()}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+my_first_db>
