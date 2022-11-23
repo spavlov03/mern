@@ -12,7 +12,7 @@ Inside app folder
   make server folder and server.js
   inside server folder 
     npm init -y
-    npm i express 
+    npm install mongoose express
 
     server.js will always have : 
     const express = require('express')
@@ -40,3 +40,5 @@ Inside app folder
       - models - will hold all the schemas
       - routes - will handle all of our routes for each model
       server.js - will handle all the server logic with express
+    
+      
