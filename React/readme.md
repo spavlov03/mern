@@ -1,6 +1,9 @@
 React Commands
 
-npx create-react-app "your-project-name-here"
+Create Project folder
+  make new repo on github and follow steps
+
+npx create-react-app client 
 
 Inside app folder
   npm start
@@ -9,12 +12,14 @@ Inside app folder
 
   npm install react-router-dom
 
-  make server folder and server.js
+Make server folder and server.js
   inside server folder 
     npm init -y
     npm install mongoose express
+    npm install cors
 
-    server.js will always have : 
+
+  server.js will always have : 
     const express = require('express')
     const app = express()
     const PORT = 8000
@@ -23,17 +28,18 @@ Inside app folder
       console.log(`Server is up and running on port ${PORT}`)
     })
 
+
+    run server - nodemon server.js
+
+    MiddleWare in server.js: 
+    app.use(express.json())
+    app.use(express.urlencoded({extended:true}))
+  Routes
     app.get('/user',(request,response)=>{
 
     })  
 
-    run server - nodemon server.js
-
-    MiddleWare : 
-    app.use(express.json())
-    app.use(express.urlencoded({extended:true}))
-
-    folder structure 
+    Folder structure 
     server
       - config - will handle the database configuration and connection
       - controllers - will hold all logic for each model (i.e creating, updating, etc...)
