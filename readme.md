@@ -5,7 +5,7 @@ Create Project folder
 
 npx create-react-app client 
 
-Inside app folder
+Inside client folder
   npm start
 
   npm install axios 
