@@ -9,8 +9,7 @@ import MessageDisplay from './components/MessageDisplay';
 import Digimon from './components/Digimon';
 import { useState } from 'react';
 import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
-
-
+import LoginForm from './components/LoginForm';
 
 function App() {
   const [currentMsg, setCurrentMsg] = useState("There are no messages");
@@ -20,6 +19,7 @@ function App() {
 }
   return (
     <BrowserRouter>
+    <LoginForm/>
     <div className="App">
       <Routes>
         <Route path="/" element={<MessageForm onNewMessage={youveGotMail}/>}/>
