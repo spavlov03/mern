@@ -17,6 +17,13 @@ Make server folder and server.js
     npm init -y
     npm install mongoose express
     npm install cors
+    npm install bcrypt
+    npm install dotenv
+    npm install jsonwebtoken
+    npm install cookie-parser
+
+    create .env file with "SECRET_KEY=" inside 
+    add .env file to .gitignore
 
 
   server.js will always have : 
